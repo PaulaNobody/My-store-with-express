@@ -13,9 +13,8 @@ class CategoriesService {
       for (let index = 0; index < limit; index++) {
         this.categories.push({
           id: faker.datatype.uuid(),
-          name:faker.commerce.categorytName(),
+          name:faker.database.column() ,// => "category",
           image: faker.image.imageUrl(),
-        //   isBlock: faker.datatype.boolean(),
         });
       }
     }
@@ -40,7 +39,7 @@ class CategoriesService {
     async findOne(id){
       const category = this.categories.find(item => item.id === id);
       if (!category){
-        throw boom.notFound('product nor found');
+        throw boom.notFound('category nor found');
       }
     //   if(category.isBlock){
     //     throw boom.conflict('product is block ');

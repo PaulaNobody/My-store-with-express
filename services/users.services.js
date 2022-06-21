@@ -12,8 +12,10 @@ class UsersService{
         for(let index =0; index <limit; index ++){
             this.users.push({
                 id:faker.datatype.uuid(),
-                name:faker.commerce.userName(),
+                name:faker.name.firstName(),
+                lastname:faker.name.lastName(),
                 image:faker.image.imageUrl(),
+                
             });
         }
     }
@@ -51,13 +53,13 @@ class UsersService{
         const user = this.users[index];
         this.users[index]={
           ...user,
-          ...cahnges
+          ...changes
         };
         return this.users[index];
     }
 
-    async delete_(id){
-      const index = this.users.findIndex(item =>item.id ===id);
+    async delete(id){
+      const index = this.users.findIndex(item => item.id === id);
       if (index === -1){
         throw boom.notFound('user nor found');
       }
@@ -65,4 +67,4 @@ class UsersService{
       return { id };
     }
 }
- modele.exports = UsersService;
+ module.exports = UsersService;
