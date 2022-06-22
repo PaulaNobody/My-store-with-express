@@ -6,22 +6,22 @@ const { logErrors, errorHandler, boomerrorHandler } = require('./middlewares/err
 
 const app = express();
 // const port = 3000;
-const port=process.env.PORT||3000;
+const port=process.env.PORT||3000; // variable de entorno
 
 app.use(express.json());
 
-// const whitelist=['http://localhost:8080'];
-// const options={
-//   origin: (origin, callback)=>{
-//     if(whitelist.includes(origin)){
-//       callback(null,true);
-//     }else{
-//       callback(new Error('no permitido'));
-//     }
-//   }
-// }
-// app.use(cors(options));// habilita a cualquier dominio
-app.use(cors());
+const whitelist=['http://localhost:8080'];
+const options={
+  origin: (origin, callback)=>{
+    if(whitelist.includes(origin)|| !origin){
+      callback(null,true);
+    }else{
+      callback(new Error('no permitido'));
+    }
+  }
+}
+app.use(cors(options));// habilita a cualquier dominio
+// app.use(cors());
 app.get('/', (req, res) => {
   res.send('Hola mi server en express');
 })
