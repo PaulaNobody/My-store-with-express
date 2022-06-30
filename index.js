@@ -10,7 +10,7 @@ const port=process.env.PORT||3000; // variable de entorno
 
 app.use(express.json());
 
-const whitelist=['http://localhost:8080'];
+const whitelist=['http://localhost:3000', 'http://localhost:8080','http://localhost:5000'];
 const options={
   origin: (origin, callback)=>{
     if(whitelist.includes(origin)|| !origin){
@@ -22,13 +22,22 @@ const options={
 }
 app.use(cors(options));// habilita a cualquier dominio
 // app.use(cors());
-app.get('/', (req, res) => {
-  res.send('Hola mi server en express');
-})
+// app.get('/', (req, res) => {
+//   res.send('Hola mi server en express');
+// })
 
 app.get('/nueva-ruta', (req, res) => {
   res.send('Hola, soy una nueva ruta');
 })
+
+app.get('/', (req,res)=>{
+  res.sendFile(__dirname + "/frontend.html")
+
+});
+// app.get('/products', (req,res)=>{
+//   res.sendFile(__dirname + "/views/products.html")
+
+// });
 
 routerApi(app);
 

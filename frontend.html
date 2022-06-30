@@ -4,18 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mi tienda </title>
+    <!-- css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- js -->
+
+<style>
+    .txt{
+        margin-top: 15px; 
+        margin-left: 50px;  }
+        
+    .tittle{
+        text-align: center;
+        margin-top: 15px; 
+        margin-left: 30px;
+    }
+        
+</style>
+    
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+        <!-- barra de navegación -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="https://img.icons8.com/color/48/000000/small-business.png"/>My Store</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://protected-sands-32749.herokuapp.com/api/v1/products">Productos</a>
+                  </li>
+                  <li class="nav-item">
+
+                    <a class="nav-link" href="https://protected-sands-32749.herokuapp.com/api/v1/categories">Categorias</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://protected-sands-32749.herokuapp.com/api/v1/users">Usuarios</a>
+                  </li>
+                 
+                </ul>
+               
+              </div>
+            </div>
+          </nav>
+
+<!-- Mi titulo -->
+<hr>
+        <h1 class="tittle">Mi tienda con Node JS y Express</h1>
+        <hr>
+
+        <div class=" txt">
+            Reto desarrollado por estudiantes de Análisis y Diseño de Sistemas de información del CIDE Soacha, usando node js y libreria express.
+        
+        <br>
+        <br>
+
+    
+<img src="https://i.pinimg.com/736x/6b/2d/59/6b2d5980bce5a2d7024e95afabf21988.jpg" class="rounded mx-auto d-block" alt="500" width="500" style="border:2px solid black;">
+</div>
+<div>
+
+       
+        <script>
+            (async()=>{
+                const response= await fetch('http://localhost:3000/api/v1/products');
+                const data = await response.json();
+                console.log(data);
+            })();
+        </script>
+        
+    </div>
 
 
-    Funciona
-    <script>
-        (async()=>{
-            const response= await fetch('http://localhost:3000/api/v1/products');
-            const data = await response.json();
-            console.log(data);
-        })();
-    </script>
+
+
 </body>
 </html>

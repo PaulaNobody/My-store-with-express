@@ -1,4 +1,5 @@
 const express = require('express');
+const faker = require('faker');
 const CategoriesService = require('./../services/categories.services');
 const validatorHandler = require('./../middlewares/validator.handler');
 const { createCategorySchema, updateCategorySchema, getCategorySchema } = require('./../schemas/categories.schema');

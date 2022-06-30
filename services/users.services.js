@@ -15,7 +15,10 @@ class UsersService{
                 name:faker.name.firstName(),
                 lastname:faker.name.lastName(),
                 image:faker.image.imageUrl(),
-                
+                job:faker.name.jobTitle(),
+                jobArea:faker.name.jobArea(),
+                phone:faker.phone.phoneNumber(),
+               
             });
         }
     }

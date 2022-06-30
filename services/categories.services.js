@@ -12,9 +12,10 @@ class CategoriesService {
       const limit = 20;
       for (let index = 0; index < limit; index++) {
         this.categories.push({
+
           id: faker.datatype.uuid(),
           name:faker.database.column() ,// => "category",
-          image: faker.image.imageUrl(),
+          image: faker.random.image(),
         });
       }
     }
